@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size:16px;
+    color: #673929;
+}
+#container{
+    width: 900px;
+    margin: 0 auto;
+}
+#header{
+    height: 220px;
+    margin-bottom: 5px;
+    position: relative;
+}
+#icon-list {
+ position: absolute;
+    top:170px;
+    right: 30px;
+    width: 300px;
+    height: 70px;
+    //font-size: 0px;
+}
+#icon-list img{
+    width: 50px;
+    height: 50px;
+}
+#nav{
+    height:30px;
+    margin:5px;
+    background-color: cadetblue;
+    font-size: 18px;
+    line-height: 30px;
+    color: azure;
+    letter-spacing: 2px;
+    text-align: center;
+}
+#nav a{
+    text-decoration: none;
+}
+a:link{
+    color:#fff;
+}
+a:visited{
+    color:#fff;
+}
+a:hover{
+    color:yellow;
+}
+a:active{
+    color:yellow;
+}
+#main{
+    background-color: black;
+}
+#aside{
+    float:left;
+    width: 300px;
+    height: 984px;
+    background-color:lightblue;
+    text-align: center;
+    font-size: 14px;
+}
+#aside h2{
+    margin: 20px;
+}
+#aside table{
+    margin: 35px auto;
+    text-align: center;
+    line-height: 20px;
+    background-color: antiquewhite;
+    width:200px ;
+    height: 180px;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+#aside td{
+    border: 1px dashed black;
+    border-radius: 10px;
+}
+#imagelist {
+    width: 130px;
+    margin: 0 auto;
+}
+.pol {
+    width: 85px;
+    padding: 10px;
+    background-color: gray;
+    border: 1px solid #bfbfbf;
+    box-shadow: 2px 2px 4px #aaaaaa;
+    border-radius: 5px;
+}
+#imagelist img{
+    height: 95px;
+    width: 85px;
+    margin: 0 auto;
+}
+.rotate-left{
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    -o-transform: rotate(7deg);
+    transform: rotate(7deg);
+}
+.rotate-right{
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+}
+#content{
+    float: right;
+    width: 595px;
+    margin-bottom: 5px;
+    background-color:lightsteelblue;
+}
+.subcon{
+    width: 570px;
+    margin: 10px auto;
+    clear: both;
+}
+.subcon img{
+    margin: 5px;
+    padding: 5px;
+    float: left;
+    border: 1px dashed #000;
+    width: 190px;
+    height: 220px;
+}
+.subcon .subtext{
+    width: 60%;
+    float: left;
+    margin: 5px;
+}
+.subcon h2{
+    margin: 5px;
+}
+.subcon p{
+   font-size: 16px;
+    line-height: 2em;
+}
+#footer{
+    height: 60px;
+    width: 900px;
+    text-align: center;
+    line-height: 60px;
+    background-color: cadetblue;
+    clear: both;
+}
+#1-fix {
+    position: fixed;
+    top: 100px;
+    left: 5px;
+}
