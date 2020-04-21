@@ -1,9 +1,6 @@
 # 项目说明
 ![UI图](http://huzerui.com/blog/img/post/2016-10-30-how-to-make-a-mobile-html5-player.jpg)
 
-项目完成于2016年，那时候刚刚了解前端，jQuery似乎是成为了必会的工具，为了提升实战能力于是做了此案例，由于项目包含的MP3文件较大，github仓库移除了res文件夹，完整项目文件见[码云仓库地址](https://gitee.com/alex1504/jquery-mobile-player)，希望该教程对新人有所启发。
-
-预览地址：请猛击[这里](http://alex1504.gitee.io/jquery-mobile-player)
 
 注意：使用PC浏览最好打开**移动设备模式**，使用移动设备浏览需要关闭无痕浏览模式（否则无法使用本地存储，一般浏览器都是默认不开启），项目需要在**本地服务器**或**线上服务器**运行，以file:///形式的地址打开是无法进行ajax请求的，从而无法看到音乐数据。
 
@@ -189,7 +186,6 @@ function rescale() {
     }
 }
 ```
-更多详解，请看先前一篇文章《移动端自适应布局解决方案——rem》，您可以猛击[这里](http://huzerui.com/blog/2016/06/16/mobile-rem/)跳转。
 
 ## 关于歌词的同步方案实现 ##
 目前音乐播放器的歌词同步显示大概有两种，一种是精确到单个文字，一种是精确到单行歌词。本文实现的是第二种。
@@ -256,28 +252,3 @@ function renderLyric(songinfo) {
     Dom.lrcwrap.html(tpl);
 }
 ```
-
-### 歌词同步 ###
-歌词同步我写在了syncLyric方法中，监听audio元素的timeupdate事件调用。
-这个方法接收两个参数，第一个是当前播放歌曲时间（秒），第二个是转化为秒数的时间点数组。
-如果当前时间>=时间点，那么高亮当前歌词（以lrcHighIndex）存储，并且lrcHighIndex自增1。
-当歌词高亮索引lrcHighIndex>=1即歌词高亮不为第一句时，计算索引并让歌词盒子向上移动。
-```javascript
-function syncLyric(curS, formatTimeArr) {
-    if (Math.floor(curS) >= formatTimeArr[lrcHighIndex]) {
-        Dom.lrc.eq(lrcHighIndex).addClass('current').siblings().removeClass('current');
-        if (lrcHighIndex >= 1) {
-            lrcMoveIndex = lrcHighIndex - 2;
-            moveDis += Util.getMoveDis(lrcMoveIndex);
-            Dom.lrcwrap.animate({
-                "top": "-" + moveDis + "px"
-            }, 100);
-            lrcMoveIndex++;
-        }
-        lrcHighIndex++;
-    }
-}
-```
-
-# 后记（于2017-11-9）
-时隔两年，回顾当年所走的路，不仅感概前端的变化远快于自己的成长速度，不过庆幸的是自己并没有选错这条路，因为我发现开发不仅已经成为了自己的工作，更是融入了自己的生活，成为生活的一部分；其次，这是开发者最好的时代，我不仅能从互联网挖掘我所有想要深入的知识，也感受者开源社区带给我的魅力，希望自己能从知识的接收者变成知识的传播者，与您共勉。
