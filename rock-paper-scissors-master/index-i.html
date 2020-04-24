@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rock-scissors-paper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=0">
+<style type="text/css">
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: paleturquoise;
+    }
+   .container{
+       height: 100%;
+       width: 100%;
+       margin-top: 50px;
+   }
+    .main{
+        margin: 0 auto;
+        height: 720px;
+        width: 1024px;
+        border: solid 5px cornflowerblue;
+    }
+    .keep-score{
+        width: 20%;
+        height: 720px;
+        background-color: cadetblue;
+        float: left;
+    }
+    .match-section{
+        width: 80%;
+        height: 100%;
+        float: right;
+        background-color: #62c6c7;
+    }
+    .keep-score-computer{
+       width: 100%;
+        height: 50%;
+        text-align: center;
+        border-bottom: solid 5px darkseagreen;
+    }
+    .keep-score-player{
+        width: 100%;
+        height: 50%;
+        text-align: center;
+    }
+    .match-section-computer{
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        border-bottom: solid 5px darkseagreen;
+        border-left: solid 5px darkseagreen;
+    }
+    .match-section-computer img{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        border: solid 3px blanchedalmond;
+        border-radius: 30%;
+    }
+    .match-section-player{
+        width: 100%;
+        height: 50%;
+        border-left: solid 5px darkseagreen;
+        text-align: center;
+    }
+     .match-section-player img{
+        width: 70%;
+        margin-top: 20px;
+        border: solid 3px blanchedalmond;
+        border-radius: 30%;
+         float: none;
+    }
+     .match-section-player img:hover{
+         box-shadow: 10px 10px 2px darkgray;
+     }
+    .rock{
+        width: 30%;
+        height: 100%;
+        float: left;
+    }
+    .scissors{
+        height: 100%;
+        width: 30%;
+        margin: 0 35px;
+        float: left;
+    }
+    .paper{
+        height: 100%;
+        width: 30%;
+        margin: 0 auto;
+        float: right;
+    }
+    .prompt{
+        margin-top: 45px;
+        font-size: 2em;
+        color: red;
+    }
+    .text-c{
+        font-size: 2em;
+    }
+    .computer-score{
+        font-size: 5em;
+        margin-top: 200px;
+    }
+    .player-score{
+        font-size: 5em;
+    }
+    .text-p{
+        font-size: 2em;
+        margin-top: 200px;
+    }
+    .again{
+        margin-top: 50px;
+        margin-left: 50px;
+       float: left;
+        font-size: 2em;
+        border-radius: 10px;
+    }
+    .again:hover{
+        box-shadow: 3px 3px 2px darkgrey;
+    }
+</style>
+</head>
+<body>
+<div id="1-fix">rock-scissors-paper</div>
+<div class="container">
+    <div class="main">
+        <div class="keep-score">
+            <div class="keep-score-computer">
+                <div class="text-c">computer</div>
+                <div class="computer-score"><span id="computer-score">0</span></div>
+            </div>
+            <div class="keep-score-player">
+             <div class="player-score"><span id="player-score">0</span></div>
+            <div class="text-p">player</div>
+            </div>
+        </div>
+        <div class="match-section">
+            <div class="match-section-computer">
+                <img src="imgs/what.jpg" alt="" id="computer-img">
+                <div id="prompt" class="prompt"></div>
+            </div>
+            <div class="match-section-player">
+                <div class="rock">
+                <img  id="rock" src="imgs/rock.jpg" alt="" onclick="playRock()">
+                <button class="again" onclick="refresh()">again</button>
+                </div>
+                <div class="scissors">
+                    <img  id="scissors" src="imgs/scissors.jpg" alt="" onclick="playScissors()">
+                </div>
+                <div class="paper">
+                    <img id="paper" src="imgs/paper.jpg" alt="" onclick="playPaper()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--js-->
+<script type="text/javascript">
+    function playRock() {
+        var ai=Math.random();
+        if(ai<0.34){
+            document.getElementById("computer-img").src="imgs/rock.jpg";
+            document.getElementById("prompt").innerHTML="draw!"
+        }
+        else if(ai<0.67&&ai>0.34){
+            document.getElementById("computer-img").src="imgs/scissors.jpg";
+            document.getElementById("prompt").innerHTML="win!";
+        }
+        else{
+            document.getElementById("computer.img").src="imgs/paper.jpg";
+            document.getElementById("prompt").innerHTML="lose!";
+        }
+        var result=document.getElementById("prompt").innerHTML;
+        scorec=document.getElementById("computer-score").innerHTML;
+        scorep=document.getElementById("player-score").innerHTML;
+        numc=Number(scorec);
+        nump=Number(scorep);
+        if(result=="win!"){
+            document.getElementById("player-score").innerHTML=nump+1;
+        }
+        else  if(result=="lose!"){
+            document.getElementById("computer-score").innerHTML=numc+1;
+        }
+        setTimeout(function () {document.getElementById("computer-img").src="imgs/what.jpg"},2500);
+    }
+    <!--select paper-->
+    function playPaper() {
+        var ai=Math.random();
+        if(ai<0.34){
+            document.getElementById("computer-img").src="imgs/rock.jpg";
+            document.getElementById("prompt").innerHTML="win!"
+        }
+        else if(ai<0.67&&ai>0.34){
+            document.getElementById("computer-img").src="imgs/scissors.jpg";
+            document.getElementById("prompt").innerHTML="lose!";
+        }
+        else{
+            document.getElementById("computer.img").src="imgs/paper.jpg";
+            document.getElementById("prompt").innerHTML="draw!";
+        }
+        var result=document.getElementById("prompt").innerHTML;
+        scorec=document.getElementById("computer-score").innerHTML;
+        scorep=document.getElementById("player-score").innerHTML;
+        numc=Number(scorec);
+        nump=Number(scorep);
+        if(result=="win!"){
+            document.getElementById("player-score").innerHTML=nump+1;
+        }
+        else  if(result=="lose!"){
+            document.getElementById("computer-score").innerHTML=numc+1;
+        }
+        setTimeout(function () {document.getElementById("computer-img").src="imgs/what.jpg"},2500);
+    }
+    <!--select scissors-->
+    function playScissors() {
+        var ai=Math.random();
+        if(ai<0.34){
+            document.getElementById("computer-img").src="imgs/rock.jpg";
+            document.getElementById("prompt").innerHTML="lose!"
+        }
+        else if(ai<0.67&&ai>0.34){
+            document.getElementById("computer-img").src="imgs/scissors.jpg";
+            document.getElementById("prompt").innerHTML="draw!";
+        }
+        else{
+            document.getElementById("computer.img").src="imgs/paper.jpg";
+            document.getElementById("prompt").innerHTML="win!";
+        }
+        var result=document.getElementById("prompt").innerHTML;
+        scorec=document.getElementById("computer-score").innerHTML;
+        scorep=document.getElementById("player-score").innerHTML;
+        numc=Number(scorec);
+        nump=Number(scorep);
+        if(result=="win!"){
+            document.getElementById("player-score").innerHTML=nump+1;
+        }
+        else  if(result=="lose!"){
+            document.getElementById("computer-score").innerHTML=numc+1;
+        }
+        setTimeout(function () {document.getElementById("computer-img").src="imgs/what.jpg"},2500);
+    }
+    function  refresh() {
+        window.location.reload();
+    }
+</script>
+</body>
+</html>
